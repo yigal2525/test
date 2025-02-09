@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דף נחיתה</title>
+    <title>תחנת מוניות</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>ברוכים הבאים!</h1>
-        <p>השאירו פרטים ונחזור אליכם בהקדם</p>
+        <nav>
+            <ul>
+                <li><a href="#home">דף ראשי</a></li>
+                <li><a href="#gallery">גלריה</a></li>
+                <li><a href="#about">עלינו</a></li>
+                <li><a href="#contact">צור קשר</a></li>
+            </ul>
+        </nav>
+        <h1>ברוכים הבאים לתחנת המוניות שלנו!</h1>
     </header>
 
-    <section id="form-section">
-        <h2>טופס יצירת קשר</h2>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="שם מלא" required>
-            <input type="email" id="email" placeholder="אימייל" required>
-            <input type="tel" id="phone" placeholder="טלפון" required>
+    <section id="home">
+        <div id="rotating-text">
+            <p>שירות מוניות מהיר ואמין בכל שעה.</p>
+            <p>הסעה לנתב"ג במחירים משתלמים במיוחד.</p>
+            <p>הזמנות נוחות דרך אפליקציה או טלפון.</p>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>גלריה</h2>
+        <p>בקרוב נוסיף תמונות של הצי שלנו ושל השירותים שלנו.</p>
+    </section>
+
+    <section id="about">
+        <h2>עלינו</h2>
+        <p>תחנת המוניות שלנו מספקת שירותים מקצועיים ואיכותיים מזה 20 שנים.</p>
+    </section>
+
+    <section id="contact">
+        <h2>צור קשר</h2>
+        <form>
+            <input type="text" placeholder="שם מלא" required>
+            <input type="email" placeholder="אימייל" required>
+            <textarea placeholder="הודעה"></textarea>
             <button type="submit">שלח</button>
         </form>
-        <p id="response-message"></p>
     </section>
 
     <script src="script.js"></script>
