@@ -1,53 +1,84 @@
+/* סגנון בסיסי */
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    direction: rtl;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    text-align: center;
+    direction: rtl;
+    background: url('taxi-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
 }
 
 header {
-    background: #007bff;
-    color: white;
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
+    position: sticky;
+    top: 0;
 }
 
-h1, h2 {
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #f0a500;
+}
+
+h1 {
     margin: 10px 0;
 }
 
-#form-section {
-    background: white;
-    padding: 30px;
-    width: 40%;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+section {
+    padding: 50px 20px;
+    margin: 20px 0;
 }
 
-form input, form button {
-    display: block;
-    width: 100%;
+#rotating-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 30px 0;
+    animation: rotateText 9s infinite;
+}
+
+@keyframes rotateText {
+    0%, 33% { content: "שירות מוניות מהיר ואמין בכל שעה."; }
+    34%, 66% { content: "הסעה לנתב\"ג במחירים משתלמים במיוחד."; }
+    67%, 100% { content: "הזמנות נוחות דרך אפליקציה או טלפון."; }
+}
+
+form input, form textarea, form button {
+    width: 80%;
+    margin: 10px 0;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
     border-radius: 5px;
+    border: none;
+    font-size: 16px;
 }
 
 form button {
-    background: #007bff;
+    background-color: #f0a500;
     color: white;
-    border: none;
     cursor: pointer;
-    font-size: 18px;
+    transition: background-color 0.3s;
 }
 
 form button:hover {
-    background: #0056b3;
-}
-
-#response-message {
-    font-weight: bold;
-    color: green;
+    background-color: #d17c00;
 }
