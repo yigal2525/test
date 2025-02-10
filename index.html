@@ -3,151 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>תחנת מוניות</title>
+    <title>אתר תחנת מוניות</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
             direction: rtl;
-            background: url('https://via.placeholder.com/1920x1080.png?text=Taxi+Background') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #f0a500;
+            padding: 20px;
             color: white;
         }
 
-        .menu-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #f0a500;
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 5px;
-        }
-
-        .sidebar {
-            position: fixed;
-            right: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            transition: right 0.3s;
-            padding-top: 50px;
-        }
-
-        .sidebar ul {
+        nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
-        .sidebar ul li {
-            padding: 15px;
-            text-align: right;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
+        nav ul li {
+            display: inline;
         }
 
-        .sidebar ul li a {
+        nav ul li a {
             color: white;
             text-decoration: none;
-            display: block;
+            font-size: 18px;
         }
 
-        .submenu {
-            display: none;
-            list-style: none;
-            padding: 0;
-            background: rgba(255, 255, 255, 0.1);
-            position: absolute;
-            right: 100%;
-            top: 0;
-            width: 200px;
-        }
-
-        .sidebar ul li:hover .submenu {
-            display: block;
-        }
-
-        .sidebar ul li .submenu li {
-            padding: 10px;
-        }
-
-        .open-sidebar {
-            right: 0;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        section {
             padding: 20px;
-            text-align: center;
         }
 
         .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-
     </style>
 </head>
-<body onclick="closeMenu(event)">
-    <button class="menu-toggle" onclick="toggleMenu(event)">☰ תפריט</button>
-    <nav class="sidebar" id="sidebar">
-        <ul>
-            <li><a href="#home">דף ראשי</a></li>
-            <li>
-                <a href="#gallery">גלריה ▼</a>
-                <ul class="submenu">
-                    <li><a href="#cars">צי המוניות</a></li>
-                    <li><a href="#locations">מיקומים נבחרים</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#about">עלינו ▼</a>
-                <ul class="submenu">
-                    <li><a href="#history">היסטוריה</a></li>
-                    <li><a href="#team">הצוות שלנו</a></li>
-                </ul>
-            </li>
-            <li><a href="#contact">צור קשר</a></li>
-        </ul>
-    </nav>
+<body>
+    <header>
+        <h1>ברוכים הבאים לתחנת המוניות שלנו</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">דף ראשי</a></li>
+                <li><a href="#gallery">גלריה</a></li>
+                <li><a href="admin.html">דף ניהול</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section id="home">
-        <h1>ברוכים הבאים לתחנת המוניות שלנו!</h1>
+        <h2>שירותי התחנה</h2>
+        <p>תחנת המוניות שלנו מספקת שירות מהיר, אמין ובמחירים משתלמים לכל יעד!</p>
     </section>
 
     <section id="gallery">
         <h2>גלריה</h2>
         <div class="gallery">
-            <img src="https://via.placeholder.com/300x200.png?text=Taxi+1" alt="Taxi 1">
-            <img src="https://via.placeholder.com/300x200.png?text=Taxi+2" alt="Taxi 2">
-            <img src="https://via.placeholder.com/300x200.png?text=Taxi+3" alt="Taxi 3">
-            <img src="https://via.placeholder.com/300x200.png?text=Taxi+4" alt="Taxi 4">
-            <img src="https://via.placeholder.com/300x200.png?text=Taxi+5" alt="Taxi 5">
-            <img src="https://via.placeholder.com/300x200.png?text=Taxi+6" alt="Taxi 6">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+1" alt="מונית 1">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+2" alt="מונית 2">
         </div>
     </section>
-
-    <script>
-        function toggleMenu(event) {
-            event.stopPropagation(); // Prevent the click from propagating to the body
-            document.getElementById("sidebar").classList.toggle("open-sidebar");
-        }
-
-        function closeMenu(event) {
-            if (!event.target.closest(".sidebar") && !event.target.closest(".menu-toggle")) {
-                document.getElementById("sidebar").classList.remove("open-sidebar");
-            }
-        }
-    </script>
 </body>
 </html>
