@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>דף ניהול</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: white;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form input, form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            background-color: #f0a500;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #d18c00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>דף ניהול</h1>
+    </header>
+
+    <form id="adminForm">
+        <h2>הוסף תמונה לגלריה</h2>
+        <input type="text" id="imageUrl" placeholder="הכנס קישור לתמונה" required>
+        <button type="submit">הוסף</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('adminForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const imageUrl = document.getElementById('imageUrl').value;
+            const gallery = window.localStorage.getItem('gallery') || '[]';
+            const galleryArray = JSON.parse(gallery);
+            galleryArray.push(imageUrl);
+            window.localStorage.setItem('gallery', JSON.stringify(galleryArray));
+            alert('התמונה נוספה בהצלחה!');
+        });
+    </script>
+</body>
+</html>
