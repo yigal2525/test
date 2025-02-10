@@ -80,10 +80,26 @@
         .open-sidebar {
             right: 0;
         }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
     </style>
 </head>
-<body>
-    <button class="menu-toggle" onclick="toggleMenu()">☰ תפריט</button>
+<body onclick="closeMenu(event)">
+    <button class="menu-toggle" onclick="toggleMenu(event)">☰ תפריט</button>
     <nav class="sidebar" id="sidebar">
         <ul>
             <li><a href="#home">דף ראשי</a></li>
@@ -109,9 +125,28 @@
         <h1>ברוכים הבאים לתחנת המוניות שלנו!</h1>
     </section>
 
+    <section id="gallery">
+        <h2>גלריה</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+1" alt="Taxi 1">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+2" alt="Taxi 2">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+3" alt="Taxi 3">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+4" alt="Taxi 4">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+5" alt="Taxi 5">
+            <img src="https://via.placeholder.com/300x200.png?text=Taxi+6" alt="Taxi 6">
+        </div>
+    </section>
+
     <script>
-        function toggleMenu() {
+        function toggleMenu(event) {
+            event.stopPropagation(); // Prevent the click from propagating to the body
             document.getElementById("sidebar").classList.toggle("open-sidebar");
+        }
+
+        function closeMenu(event) {
+            if (!event.target.closest(".sidebar") && !event.target.closest(".menu-toggle")) {
+                document.getElementById("sidebar").classList.remove("open-sidebar");
+            }
         }
     </script>
 </body>
